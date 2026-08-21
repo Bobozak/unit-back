@@ -1,0 +1,21 @@
+# Top-most EditorConfig file
+root = true
+
+# Indentation style and size
+[*]
+indent_style = space
+indent_size = 2
+
+# Encoding and line endings
+[*]
+charset = utf-8
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# File-specific settings
+[*.md]
+trim_trailing_whitespace = false
+
+[*.txt]
+indent_size = 4

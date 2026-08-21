@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: balancy-postgres
+    restart: unless-stopped
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: balance
+      POSTGRES_PASSWORD: balance
+      POSTGRES_DB: balance
+    volumes:
+      - balancy_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U balance -d balance']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  balancy_postgres_data:

@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2019",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictPropertyInitialization": false,
+    "types": ["jest", "node"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "src/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}
