@@ -3,11 +3,11 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 import { SessionService } from '@/session/session.service';
 
-import { JwtStrategy } from './jwt.strategy';
 import {
   TEST_SESSION_ID,
   TEST_UNIT_ID,
 } from '../../../test/helpers/uuid-fixtures';
+import { JwtStrategy } from './jwt.strategy';
 
 describe('JwtStrategy', () => {
   let strategy: JwtStrategy;

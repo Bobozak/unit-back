@@ -10,16 +10,15 @@ import {
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
 
-import { unauthorizedResponse } from '@/common/swagger/common-responses';
 import { TaskSearchIn } from '@/common';
-
-import { ToggleTaskStatusDto } from '../dto/toggle-task-status.dto';
+import { unauthorizedResponse } from '@/common/swagger/common-responses';
 
 import {
   CreateTaskResponseDto,
   SearchTasksResponseDto,
   TaskResponseDto,
 } from '../dto/response';
+import { ToggleTaskStatusDto } from '../dto/toggle-task-status.dto';
 
 const unauthorizedDecorator = ApiUnauthorizedResponse({
   description: 'Unauthorized',

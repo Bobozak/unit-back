@@ -5,7 +5,6 @@ import { EntityNotFoundError } from 'typeorm';
 import { TaskEntity } from '@/tasks/entities/task.entity';
 
 import { TEST_TASK_ID, TEST_UNIT_ID } from '../../test/helpers/uuid-fixtures';
-
 import { NoteEntity } from './entities/note.entity';
 import { NotesService } from './notes.service';
 

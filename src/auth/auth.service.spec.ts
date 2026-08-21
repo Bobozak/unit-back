@@ -16,7 +16,6 @@ import {
   TEST_SESSION_ID,
   TEST_UNIT_ID,
 } from '../../test/helpers/uuid-fixtures';
-
 import { AuthService } from './auth.service';
 
 jest.mock('bcrypt');

@@ -8,6 +8,7 @@ import { DataSource, In, QueryFailedError, Repository } from 'typeorm';
 
 import { UnitAssessmentEntity } from '@/assessment/entities/unit-assessment.entity';
 import {
+  type BaselineVersionRecord,
   bumpBaselineVersion,
   CATALOG_BASELINE_VERSIONS,
   detectAnomalies,
@@ -15,16 +16,15 @@ import {
   formatLogLine,
   integrityAfterAccepts,
   isMethodologyCode,
+  type LogSortField,
+  type LogSortOrder,
   matchClaim,
   NOISE_PER_REJECTION,
   recomputeAssessment,
   sortLogStream,
-  tierFromProbability,
-  TIER_RULES,
-  type BaselineVersionRecord,
-  type LogSortField,
-  type LogSortOrder,
   type StreamTask,
+  TIER_RULES,
+  tierFromProbability,
 } from '@/assessment/rebaseline';
 import {
   computeAssessment,

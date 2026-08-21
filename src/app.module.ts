@@ -9,7 +9,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AssessmentModule } from './assessment/assessment.module';
 import { AuthModule } from './auth/auth.module';
-import { DiagnosticsModule } from './diagnostics/diagnostics.module';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import {
@@ -19,8 +18,9 @@ import {
   NotFoundInterceptor,
 } from './common';
 import { BlockedUnitGuard } from './common/guards/blocked-unit.guard';
-import { SessionModule } from './session/session.module';
+import { DiagnosticsModule } from './diagnostics/diagnostics.module';
 import { NotesModule } from './notes/notes.module';
+import { SessionModule } from './session/session.module';
 import { TasksModule } from './tasks/tasks.module';
 import { UnitsModule } from './units/units.module';
 

@@ -3,8 +3,8 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { Session } from './entities/session.entity';
-import { SessionCleanupService } from './session-cleanup.service';
 import { SessionService } from './session.service';
+import { SessionCleanupService } from './session-cleanup.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Session]), ScheduleModule.forRoot()],

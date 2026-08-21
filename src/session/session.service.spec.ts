@@ -8,7 +8,6 @@ import {
   TEST_SESSION_ID,
   TEST_UNIT_ID,
 } from '../../test/helpers/uuid-fixtures';
-
 import { Session } from './entities/session.entity';
 import { SessionService } from './session.service';
 

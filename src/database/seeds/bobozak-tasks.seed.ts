@@ -4,8 +4,8 @@ import { parse } from 'pg-connection-string';
 
 import {
   computeAssessment,
-  windowFromNow,
   type ScoringTask,
+  windowFromNow,
 } from '@/assessment/scoring';
 import { AssessmentVerdict } from '@/common';
 

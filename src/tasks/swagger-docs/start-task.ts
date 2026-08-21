@@ -10,8 +10,8 @@ import {
 
 import { unauthorizedResponse } from '@/common/swagger/common-responses';
 
-import { StartTaskDto } from '../dto/start-task.dto';
 import { TaskResponseDto } from '../dto/response';
+import { StartTaskDto } from '../dto/start-task.dto';
 
 export const StartTaskDocs = () =>
   applyDecorators(

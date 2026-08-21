@@ -12,8 +12,8 @@ const noteTextRegex =
 const noCyrillicRegex = /^[^\u0400-\u04FF\u0500-\u052F]*$/;
 
 export {
-  noteTextRegex,
   noCyrillicRegex,
+  noteTextRegex,
   taskerUnitnameRegex,
   taskTitleRegex,
   unitNameRegex,

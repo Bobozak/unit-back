@@ -1,4 +1,4 @@
-import { Controller, Get, VERSION_NEUTRAL, Version } from '@nestjs/common';
+import { Controller, Get, Version, VERSION_NEUTRAL } from '@nestjs/common';
 
 import { Public } from '@/common';
 

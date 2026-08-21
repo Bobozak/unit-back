@@ -6,8 +6,8 @@ import { TaskEntity } from '@/tasks/entities/task.entity';
 import { UnitEntity } from '@/units/entities/unit.entity';
 
 import { AssessmentController } from './assessment.controller';
-import { AssessmentInternalController } from './assessment-internal.controller';
 import { AssessmentService } from './assessment.service';
+import { AssessmentInternalController } from './assessment-internal.controller';
 import { UnitAssessmentEntity } from './entities/unit-assessment.entity';
 
 @Module({

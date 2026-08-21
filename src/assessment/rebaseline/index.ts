@@ -6,8 +6,8 @@ export {
   integrityAfterAccepts,
   isMethodologyCode,
   NOISE_PER_REJECTION,
-  tierFromProbability,
   TIER_RULES,
+  tierFromProbability,
 } from './config';
 export { detectAnomalies, matchClaim } from './detect';
 export { buildLogStream, formatLogLine, sortLogStream } from './log-stream';

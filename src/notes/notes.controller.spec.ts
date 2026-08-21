@@ -1,7 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { TEST_TASK_ID, TEST_UNIT_ID } from '../../test/helpers/uuid-fixtures';
-
 import { NotesController } from './notes.controller';
 import { NotesService } from './notes.service';
 

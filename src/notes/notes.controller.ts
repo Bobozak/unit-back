@@ -16,6 +16,7 @@ import { JwtAuthGuard } from '@/auth/guards/jwt-auth.guard';
 
 import { CreateNoteDto } from './dto/create-note.dto';
 import { UpdateNoteDto } from './dto/update-note.dto';
+import { NotesService } from './notes.service';
 import {
   CreateNoteDocs,
   DeleteNoteDocs,
@@ -23,7 +24,6 @@ import {
   GetNotesByTaskDocs,
   UpdateNoteDocs,
 } from './swagger-docs';
-import { NotesService } from './notes.service';
 
 @Controller('notes')
 @ApiTags('Notes')

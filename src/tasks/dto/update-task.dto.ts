@@ -9,8 +9,8 @@ import {
   MaxLength,
   Min,
   MinLength,
-  ValidateIf,
   registerDecorator,
+  ValidateIf,
   type ValidationOptions,
 } from 'class-validator';
 

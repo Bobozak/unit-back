@@ -16,12 +16,12 @@ import { SimulateAssessmentDto } from './dto/simulate-assessment.dto';
 import { UnitAssessmentEntity } from './entities/unit-assessment.entity';
 import { recomputeAssessment } from './rebaseline';
 import {
-  BATCH_SIZE,
-  FINAL_INVESTIGATION_STRIKES,
-  computeAssessment,
-  windowFromNow,
   type AssessmentComputation,
+  BATCH_SIZE,
+  computeAssessment,
+  FINAL_INVESTIGATION_STRIKES,
   type ScoringTask,
+  windowFromNow,
 } from './scoring';
 
 @Injectable()

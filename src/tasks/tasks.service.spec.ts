@@ -11,7 +11,6 @@ import { Priority, TaskCategories, TaskSearchIn } from '@/common';
 import { UnitEntity } from '@/units/entities/unit.entity';
 
 import { TEST_TASK_ID, TEST_UNIT_ID } from '../../test/helpers/uuid-fixtures';
-
 import { TaskEntity } from './entities/task.entity';
 import { TasksService } from './tasks.service';
 

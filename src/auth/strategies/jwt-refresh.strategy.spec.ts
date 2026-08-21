@@ -4,11 +4,11 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { SessionService } from '@/session/session.service';
 import { UnitsService } from '@/units/units.service';
 
-import { RefreshJwtStrategy } from './jwt-refresh.strategy';
 import {
   TEST_SESSION_ID,
   TEST_UNIT_ID,
 } from '../../../test/helpers/uuid-fixtures';
+import { RefreshJwtStrategy } from './jwt-refresh.strategy';
 
 describe('RefreshJwtStrategy', () => {
   let strategy: RefreshJwtStrategy;

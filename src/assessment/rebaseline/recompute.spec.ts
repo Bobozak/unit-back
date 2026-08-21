@@ -1,7 +1,7 @@
 import { AssessmentFeatureId, AssessmentVerdict } from '@/common';
 
-import { FEATURE_WEIGHTS } from '../scoring/config';
 import { emptyFeatures } from '../scoring/compute-assessment';
+import { FEATURE_WEIGHTS } from '../scoring/config';
 import type { AssessmentFeatureMap } from '../scoring/types';
 import { availableWeightOf, recomputeAssessment } from './recompute';
 

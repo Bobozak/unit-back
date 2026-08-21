@@ -1,5 +1,6 @@
 import { AssessmentFeatureId } from '@/common';
 
+import type { TaskLogIndex } from './anomalies';
 import {
   BASELINE_LOG_START,
   NULL_INPUT_MAX_MS,
@@ -7,7 +8,6 @@ import {
   PROC_LOG_START,
   SYSTEM_LOG_START,
 } from './config';
-import type { TaskLogIndex } from './anomalies';
 import type {
   BaselineVersionRecord,
   LogEntry,

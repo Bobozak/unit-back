@@ -2,10 +2,9 @@ import { ForbiddenException, UnauthorizedException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { EntityNotFoundError } from 'typeorm';
 
-import { AuthService } from '../auth.service';
-
-import { LocalStrategy } from './local.strategy';
 import { TEST_UNIT_ID } from '../../../test/helpers/uuid-fixtures';
+import { AuthService } from '../auth.service';
+import { LocalStrategy } from './local.strategy';
 
 describe('LocalStrategy', () => {
   let strategy: LocalStrategy;

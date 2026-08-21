@@ -1,8 +1,7 @@
 import { INestApplication } from '@nestjs/common';
-import { DataSource } from 'typeorm';
 import request from 'supertest';
+import { DataSource } from 'typeorm';
 
-import { createE2eApp } from './helpers/create-e2e-app';
 import {
   authPath,
   buildRound1DigitSequence,
@@ -12,6 +11,7 @@ import {
   validPassphrase,
   validSecurityAnswer,
 } from './helpers/auth-test-utils';
+import { createE2eApp } from './helpers/create-e2e-app';
 
 const hasDatabase = Boolean(process.env.DATABASE_URL);
 
