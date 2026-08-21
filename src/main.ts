@@ -51,13 +51,18 @@ async function bootstrap() {
     defaultVersion: '1',
   });
 
-  const clientOrigins = (configService.get<string>('CLIENT_URL') ?? '')
-    .split(',')
-    .map((origin) => origin.trim())
-    .filter(Boolean);
+  const clientOrigins = [
+    ...new Set(
+      (configService.get<string>('CLIENT_URL') ?? '')
+        .split(',')
+        .map((origin) => origin.trim().replace(/\/$/, ''))
+        .filter(Boolean)
+        .concat('http://localhost:8000', 'https://unit-front.vercel.app'),
+    ),
+  ];
 
   app.enableCors({
-    origin: clientOrigins.length > 0 ? clientOrigins : ['http://localhost:8000'],
+    origin: clientOrigins,
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
     allowedHeaders: [
       'Origin',
