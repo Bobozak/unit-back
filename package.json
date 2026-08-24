@@ -43,7 +43,8 @@
     "migrate:passphrase-challenge-rate-limit": "ts-node -r tsconfig-paths/register ./src/database/migrations/run-passphrase-change-challenge-rate-limit-migration.ts",
     "migrate:case-insensitive-unitname": "ts-node -r tsconfig-paths/register ./src/database/migrations/run-case-insensitive-unitname-migration.ts",
     "migrate:security-question": "ts-node -r tsconfig-paths/register ./src/database/migrations/run-security-question-migration.ts",
-    "seed:bobozak": "ts-node -r tsconfig-paths/register ./src/database/seeds/bobozak-tasks.seed.ts"
+    "seed:bobozak": "ts-node -r tsconfig-paths/register ./src/database/seeds/bobozak-tasks.seed.ts",
+    "seed:bobozak-filter-tasks": "ts-node -r tsconfig-paths/register ./src/database/seeds/bobozak-filter-test-tasks.seed.ts"
   },
   "overrides": {
     "@nestjs/common": "^11.1.28",
