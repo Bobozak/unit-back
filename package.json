@@ -60,7 +60,7 @@
     "@nestjs/platform-express": "^11.1.28",
     "@nestjs/platform-socket.io": "^11.1.28",
     "@nestjs/schedule": "^5.0.1",
-    "@nestjs/swagger": "^11.0.0",
+    "@nestjs/swagger": "^11.4.7",
     "@nestjs/typeorm": "^11.0.0",
     "@sideway/address": "^5.0.0",
     "bcrypt": "^5.1.0",
