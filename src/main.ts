@@ -1,6 +1,5 @@
 import {
   ClassSerializerInterceptor,
-  ConsoleLogger,
   Logger,
   LogLevel,
   ValidationPipe,
@@ -15,6 +14,7 @@ import { config } from 'dotenv';
 import { join } from 'path';
 
 import { AppModule } from './app.module';
+import { AppLogger } from './common/logger/app-logger';
 
 config();
 
@@ -28,13 +28,15 @@ async function bootstrap() {
   ];
 
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
-    logger: new ConsoleLogger('NestApplication', {
+    logger: new AppLogger('NestApplication', {
       json: isProduction,
       colors: !isProduction,
       logLevels,
     }),
   });
   app.set('query parser', 'extended');
+  // Render sits one proxy in front of the process. Trust it so request.ip is the client.
+  app.set('trust proxy', 1);
 
   const logger = new Logger('Bootstrap');
   const configService = app.get(ConfigService);
@@ -73,6 +75,7 @@ async function bootstrap() {
       'X-Frame-Options',
     ],
     credentials: true,
+    exposedHeaders: ['X-Request-Id'],
   });
 
   app.useStaticAssets(join(__dirname, '..', 'node_modules', 'swagger-ui-dist'));

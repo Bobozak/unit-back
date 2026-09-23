@@ -413,10 +413,13 @@ Allowlist: `@Public()`, `GET /units/me`, `GET /assessment/me`, `POST /auth/refre
 
 ## 8. Логирование
 
-- `ConsoleLogger` в `main.ts`: JSON в production, цветной вывод в dev
-- HTTP-логи: `AppLoggerMiddleware` на все роуты (`{*splat}` — Express v5)
-- В сервисах: `new Logger(ClassName.name)` из `@nestjs/common`
-- **Не добавлять** Pino, OpenTelemetry, `tracing.ts`
+Нативный Nest (`AppLogger` поверх `ConsoleLogger`). В production — одна JSON-строка на событие, в dev — цветной текст. **Не добавлять** Pino, OpenTelemetry, `tracing.ts`.
+
+- `AppLogger` сам подмешивает `requestId` и `unitId` из `AsyncLocalStorage`, вырезает секреты (passphrase, token, cookie, Bearer, JWT, bcrypt) и раскрывает объект в поля JSON, а не в одну строку `message`.
+- HTTP: `AppLoggerMiddleware` на `{*splat}`. Заголовок `X-Request-Id` (входной `[A-Za-z0-9_-]{8,128}` или новый UUID; CORS `exposedHeaders`, чтобы браузер его прочитал). Строка: `method`, `path`, `statusCode`, `durationMs`, `ip`, `userAgent`, `unitId`. Уровень: 5xx `error`, 4xx и медленнее 1s `warn`, остальное `log`. `/docs` и статика не логируются. `trust proxy = 1`, чтобы `ip` был клиентский за Render.
+- Необработанные HttpException: `AllExceptionsFilter` пишет статус, сообщение и путь. Не-HTTP ошибки по-прежнему пишет Nest (`ExceptionsHandler`), уже через `AppLogger` (message + stack + requestId). Тело ответа клиенту не меняется.
+- TypeORM: только `error` / `warn` и медленные запросы (>1s), без параметров.
+- В сервисах по-прежнему `new Logger(ClassName.name)`.
 
 ---
 
@@ -525,7 +528,7 @@ rg '<pattern>' src/
 ## 15. История решений (не откатывать без запроса)
 
 - NestJS **11** (не откатывать на 10)
-- Logging: **native ConsoleLogger** (не Pino)
+- Logging: **native AppLogger** (структурный JSON, requestId, redaction; не Pino/OTEL)
 - Tasks: **UTC dates**, без `offset`; строгий ISO с миллисекундами + `Z`
 - Tasks entity: без `type`/`pinned`/`geolocation`/`duration`; есть `complexity`, `overdueReason`
 - Passphrase change: security question then digit challenge; `POST /auth/passphrase-challenge` requires `securityAnswer`

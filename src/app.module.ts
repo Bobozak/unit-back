@@ -1,6 +1,6 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
+import { APP_FILTER, APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { join } from 'path';
 import { parse } from 'pg-connection-string';
@@ -17,7 +17,10 @@ import {
   IsUniqueInterceptor,
   NotFoundInterceptor,
 } from './common';
+import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
 import { BlockedUnitGuard } from './common/guards/blocked-unit.guard';
+import { RequestContextInterceptor } from './common/logger/request-context.interceptor';
+import { TypeOrmAppLogger } from './common/logger/typeorm-app-logger';
 import { DiagnosticsModule } from './diagnostics/diagnostics.module';
 import { NotesModule } from './notes/notes.module';
 import { SessionModule } from './session/session.module';
@@ -47,6 +50,9 @@ import { UnitsModule } from './units/units.module';
           database: dbConfig.database ?? undefined,
           entities: [join(__dirname, '**', '*.entity.{ts,js}')],
           synchronize: true,
+          logging: ['error', 'warn'],
+          maxQueryExecutionTime: 1000,
+          logger: new TypeOrmAppLogger(),
           ...(isLocalHost ? {} : { ssl: { rejectUnauthorized: false } }),
           extra: {
             max: 10,
@@ -77,6 +83,8 @@ import { UnitsModule } from './units/units.module';
       useClass: BlockedUnitGuard,
     },
 
+    { provide: APP_FILTER, useClass: AllExceptionsFilter },
+    { provide: APP_INTERCEPTOR, useClass: RequestContextInterceptor },
     { provide: APP_INTERCEPTOR, useClass: DatesErrorsInterceptor },
     {
       provide: APP_INTERCEPTOR,

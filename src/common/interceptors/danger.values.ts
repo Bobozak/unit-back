@@ -20,7 +20,7 @@ export const NoDangerousChars =
           if (typeof value !== 'string') return false;
           const dangerousChars = /<script|javascript:|on\w+\s*=/i;
           if (dangerousChars.test(value)) {
-            logger.error(`Potentially dangerous ${propertyName}: "${value}"`);
+            logger.warn(`Rejected dangerous characters in ${propertyName}`);
             throw new BadRequestException(
               `${propertyName} contains potentially dangerous characters`,
             );

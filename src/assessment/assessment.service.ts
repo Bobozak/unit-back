@@ -120,6 +120,7 @@ export class AssessmentService {
             `Assessment failed for unit ${unit.id}: ${
               error instanceof Error ? error.message : String(error)
             }`,
+            error instanceof Error ? error.stack : undefined,
           );
         }
       }
@@ -161,6 +162,7 @@ export class AssessmentService {
         `Assessment failed for unit ${unit.id}: ${
           error instanceof Error ? error.message : String(error)
         }`,
+        error instanceof Error ? error.stack : undefined,
       );
       return { processed: 0, blocked: 0, skipped: 0, failed: 1 };
     }

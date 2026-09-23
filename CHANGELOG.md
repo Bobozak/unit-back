@@ -1,5 +1,15 @@
 # Changelog — Units Backend
 
+## 23.09.2026 — Structured logging
+
+### Changed
+
+- HTTP and error logs are structured (`requestId`, `unitId`, status, duration, path) via native `AppLogger`. Production stays JSON on stdout.
+- Responses echo `X-Request-Id`. Secret query values, bearer tokens, JWTs, and bcrypt hashes are redacted.
+- 5xx is `error`, 4xx and requests slower than 1s are `warn`. Swagger and static assets are not access-logged.
+- TypeORM logs failed and slow queries only, without parameters.
+- `trust proxy` is 1 so the logged IP is the client behind Render.
+
 ## 21.08.2026 — Security question layer
 
 ### Added
