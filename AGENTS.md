@@ -451,13 +451,7 @@ Allowlist: `@Public()`, `GET /units/me`, `GET /assessment/me`, `POST /auth/refre
 - Редактировать plan-файлы в `.cursor/plans/`
 - Отвечать на украинском (русский или английский — по контексту задачи)
 
-### Корпоративный code style
 
-Дополнительно см. [BalancyTeam corporate code style](https://github.com/BalancyTeam/corporate-code-style):
-
-- [TypeScript](https://github.com/BalancyTeam/corporate-code-style/blob/main/docs/typescript.md)
-- [NestJS](https://github.com/BalancyTeam/corporate-code-style/blob/main/docs/nestjs.md)
-- [Git](https://github.com/BalancyTeam/corporate-code-style/blob/main/docs/git.md)
 
 ### Imports
 
